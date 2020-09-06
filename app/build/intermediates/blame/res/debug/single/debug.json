@@ -36,8 +36,16 @@
         "source": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\build\\intermediates\\res\\merged\\debug\\layout_movielist_item.xml.flat",
+        "source": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\src\\main\\res\\layout\\movielist_item.xml"
+    },
+    {
         "merged": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_search.xml.flat",
+        "source": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\src\\main\\res\\drawable\\ic_baseline_search.xml"
     },
     {
         "merged": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
