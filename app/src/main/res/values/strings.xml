@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Cineiver</string>
+    <!-- For the card and the movieDetailActivity-->
+    <string name="movieTitle">MovieTitle</string>
+    <string name="movieReleaseDate">movieReleaseDate</string>
+    <string name="movieSynopsis">movieSynopsis</string>
 </resources>

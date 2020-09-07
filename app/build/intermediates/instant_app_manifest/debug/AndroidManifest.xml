@@ -3,7 +3,8 @@
     package="com.example.cineiver"
     android:targetSandboxVersion="2"
     android:versionCode="1"
-    android:versionName="1.0" > <!-- <uses-permission android:name="android.permission.INTERNET"/> -->
+    android:versionName="1.0" >
+
     <uses-sdk
         android:minSdkVersion="23"
         android:targetSdkVersion="29" />
@@ -19,6 +20,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.cineiver.MovieSearchActivity" />
         <activity android:name="com.example.cineiver.MovieDetailActivity" />
         <activity android:name="com.example.cineiver.MovieListActivity" >
             <intent-filter>
@@ -32,6 +34,10 @@
             android:name="com.squareup.picasso.PicassoProvider"
             android:authorities="com.example.cineiver.com.squareup.picasso"
             android:exported="false" />
+
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.1.0" />
     </application>
 
 </manifest>

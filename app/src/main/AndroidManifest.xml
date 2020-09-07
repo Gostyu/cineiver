@@ -9,13 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MovieDetailActivity"></activity>
+        <activity android:name=".MovieSearchActivity"></activity>
+        <activity android:name=".MovieDetailActivity" />
         <activity android:name=".MovieListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-    <!--<uses-permission android:name="android.permission.INTERNET"/>-->
+
 </manifest>
