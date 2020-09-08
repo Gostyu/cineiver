@@ -68,6 +68,10 @@
         "source": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_cineiver_splash_screen.xml.flat",
+        "source": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\src\\main\\res\\layout\\activity_cineiver_splash_screen.xml"
+    },
+    {
         "merged": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },

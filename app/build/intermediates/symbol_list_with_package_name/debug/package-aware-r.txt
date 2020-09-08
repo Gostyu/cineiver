@@ -868,8 +868,10 @@ id movieDetailPicture
 id movieDetailReleaseDate
 id movieDetailSynopsis
 id movieDetailTitle
+id movieEditText
 id moviePicture
 id movieReleaseDate
+id movieSearchTitle
 id movieSynopsis
 id movieTitle
 id multiply
@@ -981,6 +983,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_cineiver_splash_screen
 layout activity_main
 layout activity_movie_detail
 layout activity_movie_search
@@ -1063,6 +1066,8 @@ string exo_controls_shuffle_description
 string exo_controls_stop_description
 string hello_blank_fragment
 string movieReleaseDate
+string movieSearchHint
+string movieSearchTitle
 string movieSynopsis
 string movieTitle
 string search_menu_title

@@ -23,7 +23,7 @@
             android:padding="30dp"
             android:textFontWeight="500"
             android:textSize="24dp"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/colorPrimary"
             ></TextView>
         <ImageView
             android:id="@+id/search_button"

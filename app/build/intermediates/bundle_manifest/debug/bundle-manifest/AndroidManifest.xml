@@ -22,6 +22,13 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.cineiver.CineiverSplashScreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.example.cineiver.MovieSearchActivity" />
         <activity android:name="com.example.cineiver.MovieDetailActivity" />
         <activity android:name="com.example.cineiver.MovieListActivity" >

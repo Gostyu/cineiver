@@ -1,6 +1,8 @@
 package com.example.cineiver;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.lifecycle.Observer;
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
@@ -25,21 +28,21 @@ public class MovieListActivity extends AppCompatActivity{
     RecyclerView recyclerView;
     MovieListAdapter movieListAdapter;
     MovieListViewModel movieListViewModel;
+    ImageView searchButtonView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //MovieApiClient client= MovieApiClient.getMovieApiClientInstance();
-        //client.getPopularMovies();
-        /*MovieRepository repository = new MovieRepository();
-        List<Movie> movieList =repository.getMovies();
-        if(movieList!=null){
-            Log.d("onCreateData",movieList.toString());
-        }*/
+        launchMovieSearchActivity();
         createRecyclerView();
-       MovieRepository repository = new MovieRepository();
-       repository.getMovies();
         createMovieViewModel();
+    }
+    void launchMovieSearchActivity(){
+        searchButtonView=findViewById(R.id.search_button);
+        searchButtonView.setOnClickListener(view -> {
+            Intent intent = new Intent(view.getContext(),MovieSearchActivity.class);
+            startActivity(intent);
+        });
     }
     void createRecyclerView(){
         recyclerView=findViewById(R.id.recyclerView);
@@ -55,13 +58,11 @@ public class MovieListActivity extends AppCompatActivity{
     }
 
     private void populateRecyclerView() {
-        movieListViewModel.getMovies().observe(this, new Observer<List<Movie>>() {
-            @Override
-            public void onChanged(List<Movie> movies) {
-                Log.d("onCreate",movies.toString());
-                movieListAdapter.setMovies(movies);
-                movieListAdapter.notifyDataSetChanged();
-            }
+        movieListViewModel.getMovies().observe(this, movies -> {
+            //Log.d("onCreate",movies.toString());
+            Log.d("onCreate",String.valueOf(movies.size()).concat(" items"));
+            movieListAdapter.setMovies(movies);
+            movieListAdapter.notifyDataSetChanged();
         });
     }
 

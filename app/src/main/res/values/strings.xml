@@ -4,4 +4,7 @@
     <string name="movieTitle">MovieTitle</string>
     <string name="movieReleaseDate">movieReleaseDate</string>
     <string name="movieSynopsis">movieSynopsis</string>
+    <!-- For the card and the movieDetailActivity-->
+    <string name="movieSearchTitle">Recherche</string>
+    <string name="movieSearchHint">Film...</string>
 </resources>

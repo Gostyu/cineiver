@@ -14,10 +14,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.cineiver.MovieDetailActivity;
 import com.example.cineiver.MovieSearchActivity;
 import com.example.cineiver.R;
 import com.example.cineiver.model.Movie;
 import com.example.cineiver.model.PosterSize;
+import com.example.cineiver.utils.Constants;
+import com.example.cineiver.utils.Utils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -45,16 +48,14 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
             movieTitleView=itemView.findViewById(R.id.movieTitle);
             movieReleaseDateView=itemView.findViewById(R.id.movieReleaseDate);
             movieSynopsisView=itemView.findViewById(R.id.movieSynopsis);
+
         }
         public void updateCardView(String imgSrc,String title,String releaseDate, String synopsis){
-            Log.d("MLAdapter",imgSrc);
+           // Log.d("MLAdapter",imgSrc);
             Picasso.get().load(imgSrc).into(moviePictureView);
             movieTitleView.setText(title);
             movieReleaseDateView.setText(releaseDate);
-            if(synopsis.length()>=synopsis.length()/2) {
-                synopsis=synopsis.substring(0,(synopsis.length()/2)).concat("...");
-            }
-            movieSynopsisView.setText(synopsis);
+            movieSynopsisView.setText(Utils.reduceString(synopsis));
         }
 
     }
@@ -73,12 +74,13 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
                 movies.get(i).getTitle(),
                 movies.get(i).getReleaseDate(),
                 movies.get(i).getOverview());
-        movieViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, MovieSearchActivity.class);
-                intent.putExtra("MOVIE",movies.get(movieViewHolder.getAdapterPosition()));
-            }
+
+        movieViewHolder.cardView.setOnClickListener(view -> {
+            //Log.d("onClick","onClick works");
+            context= view.getContext();
+            Intent intent = new Intent(context, MovieDetailActivity.class);
+            intent.putExtra(Constants.MOVIELISTADAPTER_TAG,movies.get(movieViewHolder.getAdapterPosition()));
+            context.startActivity(intent);
         });
     }
     @Override
