@@ -18,8 +18,6 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.cineiver.adapters.MovieListAdapter;
-import com.example.cineiver.model.Movie;
-import com.example.cineiver.repository.MovieRepository;
 import com.example.cineiver.viewmodels.MovieListViewModel;
 
 import java.util.List;
@@ -60,7 +58,7 @@ public class MovieListActivity extends AppCompatActivity{
     private void populateRecyclerView() {
         movieListViewModel.getMovies().observe(this, movies -> {
             //Log.d("onCreate",movies.toString());
-            Log.d("onCreate",String.valueOf(movies.size()).concat(" items"));
+           // Log.d("onCreate",String.valueOf(movies.size()).concat(" items"));
             movieListAdapter.setMovies(movies);
             movieListAdapter.notifyDataSetChanged();
         });

@@ -43,19 +43,20 @@ public class MovieApiClient{
                 public void onResponse(Call<PopularMoviesResponse> call, Response<PopularMoviesResponse> response) {
                     if (response.isSuccessful()) {
                         if (response.body() != null) {
-                           // Log.i("MOVIEAPI", response.body().getResults().toString());
+                           // Log.d("MOVIEAPI", response.body().getResults().toString());
                             //popularMoviesResponse=response;
-                          //  Log.i("MOVIEAPI", response.body().toString());
-                            Log.i("LIST", response.body().getResults().toString());
+                           // Log.d("movieApi", response.body().toString());
+                           // Log.d("Api", response.body().getResults().toString());
+                         //   Log.d("listSize", String.valueOf(response.body().getResults().size()).concat(" items"));
                             movies.setValue(response.body().getResults());
-                            //Log.i("Response",movies.toString());
-                            //Log.i("Response",popularMoviesResponse.toString());
+                            //Log.d("Response",movies.toString());
+                            //Log.d("Response",popularMoviesResponse.toString());
                         }
                     }
                 }
                 @Override
                 public void onFailure(Call<PopularMoviesResponse> call, Throwable t) {
-                    Log.d("POPULAR_MOVIES_ERROR",t.getMessage());
+                   // Log.d("POPULAR_MOVIES_ERROR",t.getMessage());
                     movies.setValue(null);
                 }
             });
