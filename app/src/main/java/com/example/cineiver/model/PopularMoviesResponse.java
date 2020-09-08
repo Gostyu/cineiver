@@ -56,4 +56,13 @@ public class PopularMoviesResponse {
         this.totalResults = totalResults;
     }
 
+    @Override
+    public String toString() {
+        return "PopularMoviesResponse{" +
+                "page=" + page +
+                ", results=" + results +
+                ", totalPages=" + totalPages +
+                ", totalResults=" + totalResults +
+                '}';
+    }
 }

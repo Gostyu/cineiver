@@ -9,9 +9,12 @@
         android:minSdkVersion="23"
         android:targetSdkVersion="29" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
-        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="false"
         android:icon="@mipmap/ic_launcher"
@@ -34,10 +37,6 @@
             android:name="com.squareup.picasso.PicassoProvider"
             android:authorities="com.example.cineiver.com.squareup.picasso"
             android:exported="false" />
-
-        <meta-data
-            android:name="android.support.VERSION"
-            android:value="26.1.0" />
     </application>
 
 </manifest>

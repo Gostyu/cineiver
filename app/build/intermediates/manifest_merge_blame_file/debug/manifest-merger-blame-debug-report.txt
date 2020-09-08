@@ -10,61 +10,61 @@
 9        android:targetSdkVersion="29" />
 9-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml
 10
-11    <application
-11-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:5:5-21:19
-12        android:allowBackup="true"
-12-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:6:9-35
-13        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
-13-->[com.android.support:support-compat:28.0.0] C:\Users\Cedric\.gradle\caches\transforms-2\files-2.1\ccbd3881d3e597a650ace942161206f5\support-compat-28.0.0\AndroidManifest.xml:22:18-91
-14        android:debuggable="true"
-15        android:extractNativeLibs="false"
-16        android:icon="@mipmap/ic_launcher"
-16-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:7:9-43
-17        android:label="@string/app_name"
-17-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:8:9-41
-18        android:roundIcon="@mipmap/ic_launcher_round"
-18-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:9:9-54
-19        android:supportsRtl="true"
-19-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:10:9-35
-20        android:testOnly="true"
-21        android:theme="@style/AppTheme" >
-21-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:11:9-40
-22        <activity android:name="com.example.cineiver.MovieSearchActivity" />
-22-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:12:9-66
-22-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:12:19-54
-23        <activity android:name="com.example.cineiver.MovieDetailActivity" />
-23-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:13:9-57
-23-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:13:19-54
-24        <activity android:name="com.example.cineiver.MovieListActivity" >
-24-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:14:9-20:20
-24-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:14:19-52
-25            <intent-filter>
-25-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:15:13-19:29
-26                <action android:name="android.intent.action.MAIN" />
-26-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:16:17-69
-26-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:16:25-66
-27
-28                <category android:name="android.intent.category.LAUNCHER" />
-28-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:18:17-77
-28-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:18:27-74
-29            </intent-filter>
-30        </activity>
-31
-32        <provider
-32-->[com.squareup.picasso:picasso:2.71828] C:\Users\Cedric\.gradle\caches\transforms-2\files-2.1\98eadd63021e4b0e2d44a7ea479bdb5a\picasso-2.71828\AndroidManifest.xml:8:9-11:40
-33            android:name="com.squareup.picasso.PicassoProvider"
-33-->[com.squareup.picasso:picasso:2.71828] C:\Users\Cedric\.gradle\caches\transforms-2\files-2.1\98eadd63021e4b0e2d44a7ea479bdb5a\picasso-2.71828\AndroidManifest.xml:9:13-64
-34            android:authorities="com.example.cineiver.com.squareup.picasso"
-34-->[com.squareup.picasso:picasso:2.71828] C:\Users\Cedric\.gradle\caches\transforms-2\files-2.1\98eadd63021e4b0e2d44a7ea479bdb5a\picasso-2.71828\AndroidManifest.xml:10:13-72
-35            android:exported="false" />
-35-->[com.squareup.picasso:picasso:2.71828] C:\Users\Cedric\.gradle\caches\transforms-2\files-2.1\98eadd63021e4b0e2d44a7ea479bdb5a\picasso-2.71828\AndroidManifest.xml:11:13-37
-36
-37        <meta-data
-37-->[com.android.support:support-v4:26.1.0] C:\Users\Cedric\.gradle\caches\transforms-2\files-2.1\f815d6dc9314653c0da891a790e5b4aa\support-v4-26.1.0\AndroidManifest.xml:26:9-28:38
-38            android:name="android.support.VERSION"
-38-->[com.android.support:support-v4:26.1.0] C:\Users\Cedric\.gradle\caches\transforms-2\files-2.1\f815d6dc9314653c0da891a790e5b4aa\support-v4-26.1.0\AndroidManifest.xml:27:13-51
-39            android:value="26.1.0" />
-39-->[com.android.support:support-v4:26.1.0] C:\Users\Cedric\.gradle\caches\transforms-2\files-2.1\f815d6dc9314653c0da891a790e5b4aa\support-v4-26.1.0\AndroidManifest.xml:28:13-35
-40    </application>
-41
-42</manifest>
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:25:5-67
+11-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:25:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:26:5-79
+12-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:26:22-76
+13
+14    <application
+14-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:6:5-24:19
+15        android:allowBackup="true"
+15-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:7:9-35
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.0.0] C:\Users\Cedric\.gradle\caches\transforms-2\files-2.1\f88df7c86cbc989e82020e686162bad6\core-1.0.0\AndroidManifest.xml:22:18-86
+17        android:debuggable="true"
+18        android:extractNativeLibs="false"
+19        android:icon="@mipmap/ic_launcher"
+19-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:8:9-43
+20        android:label="@string/app_name"
+20-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:9:9-41
+21        android:roundIcon="@mipmap/ic_launcher_round"
+21-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:10:9-54
+22        android:supportsRtl="true"
+22-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:11:9-35
+23        android:testOnly="true"
+24        android:theme="@style/AppTheme" >
+24-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:12:9-40
+25        <activity android:name="com.example.cineiver.MovieSearchActivity" />
+25-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:14:9-66
+25-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:14:19-54
+26        <activity android:name="com.example.cineiver.MovieDetailActivity" />
+26-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:15:9-57
+26-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:15:19-54
+27        <activity android:name="com.example.cineiver.MovieListActivity" >
+27-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:16:9-22:20
+27-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:16:19-52
+28            <intent-filter>
+28-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:17:13-21:29
+29                <action android:name="android.intent.action.MAIN" />
+29-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:18:17-69
+29-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:18:25-66
+30
+31                <category android:name="android.intent.category.LAUNCHER" />
+31-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:20:17-77
+31-->C:\Users\Cedric\Documents\Cineiver\app\src\main\AndroidManifest.xml:20:27-74
+32            </intent-filter>
+33        </activity>
+34
+35        <provider
+35-->[com.squareup.picasso:picasso:2.71828] C:\Users\Cedric\.gradle\caches\transforms-2\files-2.1\2840f602ece33fbcf3ba8a8b47587eb1\jetified-picasso-2.71828\AndroidManifest.xml:8:9-11:40
+36            android:name="com.squareup.picasso.PicassoProvider"
+36-->[com.squareup.picasso:picasso:2.71828] C:\Users\Cedric\.gradle\caches\transforms-2\files-2.1\2840f602ece33fbcf3ba8a8b47587eb1\jetified-picasso-2.71828\AndroidManifest.xml:9:13-64
+37            android:authorities="com.example.cineiver.com.squareup.picasso"
+37-->[com.squareup.picasso:picasso:2.71828] C:\Users\Cedric\.gradle\caches\transforms-2\files-2.1\2840f602ece33fbcf3ba8a8b47587eb1\jetified-picasso-2.71828\AndroidManifest.xml:10:13-72
+38            android:exported="false" />
+38-->[com.squareup.picasso:picasso:2.71828] C:\Users\Cedric\.gradle\caches\transforms-2\files-2.1\2840f602ece33fbcf3ba8a8b47587eb1\jetified-picasso-2.71828\AndroidManifest.xml:11:13-37
+39    </application>
+40
+41</manifest>

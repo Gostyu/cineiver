@@ -2,8 +2,15 @@ package com.example.cineiver.webservice;
 
 import android.util.Log;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
 import com.example.cineiver.model.Movie;
 import com.example.cineiver.model.PopularMoviesResponse;
+import com.example.cineiver.utils.Constants;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -12,40 +19,50 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MovieApiClient{
-   // private static MovieApiClient instance=null;
-    private static MovieApiService client = null;
-    private static String API_KEY = "391f63013b803cbd3de2634d4d8619cf";
-    public MovieApiClient(){
-
+    private static MovieApiClient client=null;
+    private MovieApiService movieApiService;
+    private MovieApiClient(){
+        movieApiService=getMovieApiServiceInstance();
+    }
+    public static MovieApiClient getMovieApiClientInstance() {
+        return client==null? client=new MovieApiClient(): client;
     }
 
-    public static MovieApiService createClient() {
-        return client==null? new Retrofit.Builder().baseUrl(MovieApiService.API_URL)
+    private static MovieApiService getMovieApiServiceInstance() {
+        return new Retrofit.Builder().baseUrl(MovieApiService.API_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(MovieApiService.class) : client;
+                .create(MovieApiService.class);
     }
-   public static void getPopularMovies(){
+   public MutableLiveData<List<Movie>> getPopularMovies(){
+       MutableLiveData<List<Movie>> movies = new MutableLiveData<>();
         try {
-            Call<PopularMoviesResponse> popularMoviesResponseCall =createClient().listPopularMovies(API_KEY);
+           Call<PopularMoviesResponse> popularMoviesResponseCall =movieApiService.listPopularMovies(Constants.API_KEY);
             popularMoviesResponseCall.enqueue(new Callback<PopularMoviesResponse>() {
                 @Override
                 public void onResponse(Call<PopularMoviesResponse> call, Response<PopularMoviesResponse> response) {
                     if (response.isSuccessful()) {
                         if (response.body() != null) {
-                            Log.i("MOVIEAPI", response.body().getResults().toString());
+                           // Log.i("MOVIEAPI", response.body().getResults().toString());
+                            //popularMoviesResponse=response;
+                          //  Log.i("MOVIEAPI", response.body().toString());
+                            Log.i("LIST", response.body().getResults().toString());
+                            movies.setValue(response.body().getResults());
+                            //Log.i("Response",movies.toString());
+                            //Log.i("Response",popularMoviesResponse.toString());
                         }
                     }
                 }
                 @Override
                 public void onFailure(Call<PopularMoviesResponse> call, Throwable t) {
                     Log.d("POPULAR_MOVIES_ERROR",t.getMessage());
+                    movies.setValue(null);
                 }
             });
         } catch (Exception e){
             e.printStackTrace();
         }
+       return movies;
     }
-
 
 }

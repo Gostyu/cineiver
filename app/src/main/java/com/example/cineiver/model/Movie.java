@@ -4,6 +4,7 @@ package com.example.cineiver.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.example.cineiver.utils.Constants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -11,7 +12,6 @@ import java.util.List;
 
 @SuppressWarnings("unused")
 public class Movie implements Parcelable {
-
     @SerializedName("adult")
     private Boolean mAdult;
     @SerializedName("backdrop_path")
@@ -168,8 +168,22 @@ public class Movie implements Parcelable {
         mPopularity = popularity;
     }
 
-    public String getPosterPath() {
-        return mPosterPath;
+    public String getPosterPath(PosterSize posterSize) {
+        String path=null;
+        switch (posterSize){
+            case SMALL:
+                path= new StringBuilder().append(Constants.MOVIEAPI_URL_IMG_SMALL).append(mPosterPath).toString();
+            break;
+            case NORMAL:
+                path= new StringBuilder().append(Constants.MOVIEAPI_URL_IMG).append(mPosterPath).toString();
+            break;
+            case LARGE:
+              //  path=new StringBuilder().append(Constants.MOVIEAPI_URL_IMG_SMALL).append(mPosterPath).toString();
+                break;
+            default:
+                break;
+        }
+        return path;
     }
 
     public void setPosterPath(String posterPath) {

@@ -1,12 +1,13 @@
 package com.example.cineiver.adapters;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,17 +17,19 @@ import android.widget.TextView;
 import com.example.cineiver.MovieSearchActivity;
 import com.example.cineiver.R;
 import com.example.cineiver.model.Movie;
+import com.example.cineiver.model.PosterSize;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MovieViewHolder> {
-    List<Movie> movies;
-    Context context;
+    private List<Movie> movies;
+    private Context context;
 
-    public MovieListAdapter(List<Movie> movies, Context context) {
-        this.movies = movies!=null? movies:movies;
+    public MovieListAdapter(Context context) {
         this.context = context;
+        movies=new ArrayList<Movie>();
     }
 
     public class MovieViewHolder extends RecyclerView.ViewHolder{
@@ -43,10 +46,14 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
             movieReleaseDateView=itemView.findViewById(R.id.movieReleaseDate);
             movieSynopsisView=itemView.findViewById(R.id.movieSynopsis);
         }
-        public void updateCardView(String Imgsrc,String title,String releaseDate, String synopsis){
-            Picasso.get().load(Imgsrc).into(moviePictureView);
+        public void updateCardView(String imgSrc,String title,String releaseDate, String synopsis){
+            Log.d("MLAdapter",imgSrc);
+            Picasso.get().load(imgSrc).into(moviePictureView);
             movieTitleView.setText(title);
             movieReleaseDateView.setText(releaseDate);
+            if(synopsis.length()>=synopsis.length()/2) {
+                synopsis=synopsis.substring(0,(synopsis.length()/2)).concat("...");
+            }
             movieSynopsisView.setText(synopsis);
         }
 
@@ -62,7 +69,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder movieViewHolder, int i) {
-        movieViewHolder.updateCardView(movies.get(i).getPosterPath(),
+        movieViewHolder.updateCardView(movies.get(i).getPosterPath(PosterSize.SMALL),
                 movies.get(i).getTitle(),
                 movies.get(i).getReleaseDate(),
                 movies.get(i).getOverview());
@@ -74,9 +81,11 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return movies.size();
+    }
+    public void setMovies(List<Movie> movies){
+            this.movies=movies;
     }
 }
