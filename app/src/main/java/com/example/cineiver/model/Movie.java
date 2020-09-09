@@ -5,8 +5,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.example.cineiver.utils.Constants;
+import com.example.cineiver.utils.Utils;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -41,6 +43,8 @@ public class Movie implements Parcelable {
     @SerializedName("vote_count")
     private Long mVoteCount;
 
+    private List<String> videoLinks;
+
     public Movie(Boolean mAdult, String mBackdropPath, List<Long> mGenreIds, Long mId, String mOriginalLanguage, String mOriginalTitle, String mOverview, Double mPopularity, String mPosterPath, String mReleaseDate, String mTitle, Boolean mVideo, Double mVoteAverage, Long mVoteCount) {
         this.mAdult = mAdult;
         this.mBackdropPath = mBackdropPath;
@@ -56,6 +60,7 @@ public class Movie implements Parcelable {
         this.mVideo = mVideo;
         this.mVoteAverage = mVoteAverage;
         this.mVoteCount = mVoteCount;
+        this.videoLinks=new ArrayList<>();
     }
 
     protected Movie(Parcel in) {
@@ -169,21 +174,7 @@ public class Movie implements Parcelable {
     }
 
     public String getPosterPath(PosterSize posterSize) {
-        String path=null;
-        switch (posterSize){
-            case SMALL:
-                path= new StringBuilder().append(Constants.MOVIEAPI_URL_IMG_SMALL).append(mPosterPath).toString();
-            break;
-            case NORMAL:
-                path= new StringBuilder().append(Constants.MOVIEAPI_URL_IMG).append(mPosterPath).toString();
-            break;
-            case LARGE:
-              //  path=new StringBuilder().append(Constants.MOVIEAPI_URL_IMG_SMALL).append(mPosterPath).toString();
-                break;
-            default:
-                break;
-        }
-        return path;
+       return Utils.getPosterPath(posterSize,mPosterPath);
     }
 
     public void setPosterPath(String posterPath) {
@@ -229,6 +220,8 @@ public class Movie implements Parcelable {
     public void setVoteCount(Long voteCount) {
         mVoteCount = voteCount;
     }
+
+    //public
 
     @Override
     public String toString() {

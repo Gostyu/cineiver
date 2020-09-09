@@ -7,15 +7,13 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.cineiver.MovieDetailActivity;
-import com.example.cineiver.MovieSearchActivity;
+import com.example.cineiver.Activities.MovieDetailActivity;
 import com.example.cineiver.R;
 import com.example.cineiver.model.Movie;
 import com.example.cineiver.model.PosterSize;

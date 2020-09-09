@@ -13,16 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CineiverSplashScreen">
+        <activity android:name=".Activities.CineiverSplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MovieSearchActivity" />
-        <activity android:name=".MovieDetailActivity" />
-        <activity android:name=".MovieListActivity">
+        <activity android:name=".Activities.MovieSearchActivity" />
+        <activity android:name=".Activities.MovieDetailActivity" />
+        <activity android:name=".Activities.MovieListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

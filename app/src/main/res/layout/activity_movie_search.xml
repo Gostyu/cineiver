@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MovieSearchActivity">
+    tools:context=".Activities.MovieSearchActivity">
     <TextView
         android:id="@+id/movieSearchTitle"
         android:layout_width="wrap_content"
@@ -30,6 +30,8 @@
         app:layout_constraintTop_toBottomOf="@id/movieSearchTitle"
         app:layout_constraintLeft_toLeftOf="@id/movieSearchTitle"
         app:layout_constraintRight_toRightOf="@id/movieSearchTitle"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
         ></EditText>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

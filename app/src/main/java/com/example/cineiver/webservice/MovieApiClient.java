@@ -2,14 +2,14 @@ package com.example.cineiver.webservice;
 
 import android.util.Log;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.cineiver.model.Movie;
+import com.example.cineiver.model.MovieVideosResponse;
 import com.example.cineiver.model.PopularMoviesResponse;
+import com.example.cineiver.model.VideoData;
 import com.example.cineiver.utils.Constants;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -20,6 +20,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MovieApiClient{
     private static MovieApiClient client=null;
+    MutableLiveData<List<Movie>> movies = new MutableLiveData<>();
+    MutableLiveData<List<VideoData>> videoDataList =new MutableLiveData<>();
     private MovieApiService movieApiService;
     private MovieApiClient(){
         movieApiService=getMovieApiServiceInstance();
@@ -35,7 +37,6 @@ public class MovieApiClient{
                 .create(MovieApiService.class);
     }
    public MutableLiveData<List<Movie>> getPopularMovies(){
-       MutableLiveData<List<Movie>> movies = new MutableLiveData<>();
         try {
            Call<PopularMoviesResponse> popularMoviesResponseCall =movieApiService.listPopularMovies(Constants.API_KEY);
             popularMoviesResponseCall.enqueue(new Callback<PopularMoviesResponse>() {
@@ -66,4 +67,32 @@ public class MovieApiClient{
        return movies;
     }
 
+    public MutableLiveData<List<VideoData>> getMovieTrailers(Long movieId){
+        try{
+            Call<MovieVideosResponse> movieTrailersCall = movieApiService.listTrailers(movieId,Constants.API_KEY);
+            movieTrailersCall.enqueue(new Callback<MovieVideosResponse>() {
+                @Override
+                public void onResponse(Call<MovieVideosResponse> call, Response<MovieVideosResponse> response) {
+                    if(response.isSuccessful()){
+                        if(response.body()!=null){
+                            List<VideoData> videoData = response.body().getResults();
+                           // Log.d("videoData",response.body().getResults().toString());
+                            if(videoData!=null){
+                               //  Log.d("videoData",videoData.toString());
+                               // Log.d("videoData",String.valueOf(videoData.size()).concat(" videoLinks"));
+                                videoDataList.setValue(videoData);
+                            }
+                        }
+                    }
+                }
+                @Override
+                public void onFailure(Call<MovieVideosResponse> call, Throwable t) {
+                    videoDataList.setValue(null);
+                }
+            });
+        }catch(Exception e ){
+            e.printStackTrace();
+        }
+        return videoDataList;
+    }
 }

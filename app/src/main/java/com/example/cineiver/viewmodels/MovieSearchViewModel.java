@@ -11,6 +11,7 @@ import java.util.List;
 public class MovieSearchViewModel extends ViewModel {
 
     LiveData<List<Movie>> movies;
+
     MovieRepository repository;
     public MovieSearchViewModel(){
         repository = new MovieRepository();
@@ -18,4 +19,5 @@ public class MovieSearchViewModel extends ViewModel {
     public LiveData<List<Movie>> getMovies() {
         return repository.getMovies();
     }
+
 }
