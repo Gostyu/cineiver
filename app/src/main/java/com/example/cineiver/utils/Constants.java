@@ -7,4 +7,5 @@ public class Constants {
     public static String MOVIELISTADAPTER_TAG="MOVIE";
     public static String YOUTUBE_URL="https://www.youtube.com/watch?v=";
     public static int NUMBER_WORDS=20;
+    public static int TIMEOUT=3000;
 }
