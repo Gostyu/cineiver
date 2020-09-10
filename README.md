@@ -3,7 +3,7 @@
 Cineiver is a little movie list app 
 
 ## Installation
-Download the zip file of the project on your computer and run Android Studio.
+Git clone the project or download it as a zip file on your computer and open it in Android Studio.
 
 ## Usage
 After you have downloaded it, in the project go to the Utils package then 
