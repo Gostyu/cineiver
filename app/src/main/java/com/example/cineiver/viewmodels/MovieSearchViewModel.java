@@ -16,8 +16,7 @@ public class MovieSearchViewModel extends ViewModel {
     public MovieSearchViewModel(){
         repository = new MovieRepository();
     }
-    public LiveData<List<Movie>> getMovies() {
-        return repository.getMovies();
+    public LiveData<List<Movie>> getRequestedMoviesByName(String title){
+        return repository.getRequestedMoviesByName(title);
     }
-
 }

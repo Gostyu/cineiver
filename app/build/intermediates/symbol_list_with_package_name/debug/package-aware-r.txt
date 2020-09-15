@@ -872,6 +872,7 @@ id movieEditText
 id moviePicture
 id movieReleaseDate
 id movieSearchTitle
+id movieSearchrecyclerView
 id movieSynopsis
 id movieTitle
 id multiply

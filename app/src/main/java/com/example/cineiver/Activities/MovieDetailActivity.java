@@ -78,4 +78,10 @@ public class MovieDetailActivity extends AppCompatActivity implements ActivityDa
         }
         slider.setPosters(trailers);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

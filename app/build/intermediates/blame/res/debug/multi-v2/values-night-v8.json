@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Cedric\\Documents\\Cineiver\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "outputFile": "C:\\Users\\Cedric\\Documents\\Test\\cineiver\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Cedric\\.gradle\\caches\\transforms-2\\files-2.1\\4c1e222132d7c6df463bbb7b701f43ab\\appcompat-1.0.0\\res\\values-night-v8\\values-night-v8.xml",

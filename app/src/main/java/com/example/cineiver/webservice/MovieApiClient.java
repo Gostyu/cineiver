@@ -7,11 +7,13 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.cineiver.model.Movie;
 import com.example.cineiver.model.MovieVideosResponse;
 import com.example.cineiver.model.PopularMoviesResponse;
+import com.example.cineiver.model.RequestedMovieResponse;
 import com.example.cineiver.model.VideoData;
 import com.example.cineiver.utils.Constants;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,6 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MovieApiClient{
     private static MovieApiClient client=null;
     MutableLiveData<List<Movie>> movies = new MutableLiveData<>();
+    MutableLiveData<List<Movie>> requestedMovies = new MutableLiveData<>();
     MutableLiveData<List<VideoData>> videoDataList =new MutableLiveData<>();
     private MovieApiService movieApiService;
     private MovieApiClient(){
@@ -94,5 +97,33 @@ public class MovieApiClient{
             e.printStackTrace();
         }
         return videoDataList;
+    }
+    public MutableLiveData<List<Movie>> getRequestedMovies(String title){
+        try{
+            Call<RequestedMovieResponse> searchMoviesCall =  title!=null ? movieApiService.listSearchedMovies(title,Constants.API_KEY) :null;
+            searchMoviesCall.enqueue(new Callback<RequestedMovieResponse>() {
+                @Override
+                public void onResponse(Call<RequestedMovieResponse> call, Response<RequestedMovieResponse> response) {
+                    if(response.isSuccessful()){
+                        if(response.body()!=null){
+                            Log.d("searched",response.body().toString());
+                            if(response.body().getResults()!=null){
+                                requestedMovies.setValue(response.body().getResults());
+                            }else {
+                                Log.d("searched", "movies is null");
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<RequestedMovieResponse> call, Throwable t) {
+                    requestedMovies.setValue(null);
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return requestedMovies;
     }
 }

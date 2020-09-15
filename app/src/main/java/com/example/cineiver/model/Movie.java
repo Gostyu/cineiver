@@ -43,7 +43,6 @@ public class Movie implements Parcelable {
     @SerializedName("vote_count")
     private Long mVoteCount;
 
-    private List<String> videoLinks;
 
     public Movie(Boolean mAdult, String mBackdropPath, List<Long> mGenreIds, Long mId, String mOriginalLanguage, String mOriginalTitle, String mOverview, Double mPopularity, String mPosterPath, String mReleaseDate, String mTitle, Boolean mVideo, Double mVoteAverage, Long mVoteCount) {
         this.mAdult = mAdult;
@@ -60,7 +59,6 @@ public class Movie implements Parcelable {
         this.mVideo = mVideo;
         this.mVoteAverage = mVoteAverage;
         this.mVoteCount = mVoteCount;
-        this.videoLinks=new ArrayList<>();
     }
 
     protected Movie(Parcel in) {

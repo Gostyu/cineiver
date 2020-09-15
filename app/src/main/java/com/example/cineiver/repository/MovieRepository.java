@@ -33,4 +33,7 @@ public class MovieRepository {
         }
          return data;
     }
+    public LiveData<List<Movie>> getRequestedMoviesByName(String title){
+        return mClient.getRequestedMovies(title);
+    }
 }
